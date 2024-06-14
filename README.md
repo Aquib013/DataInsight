@@ -28,8 +28,8 @@ This project, named **DataInsight**, is a Django-based web application that allo
 
 ## Requirements
 
-- Python 3.x
-- Django 4.x
+- Python 3.12
+- Django 5.0
 - pandas
 - matplotlib
 - seaborn
