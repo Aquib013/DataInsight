@@ -1,0 +1,67 @@
+<!-- display_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Display</title>
+    <style>
+        h1
+        {
+        text-align:center;
+        text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #28a745;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Analysis Results</h1>
+
+    {% if has_missing_values %}
+        <h2>First Few Rows of Data with Missing Values</h2>
+
+        <div>{{ table_with_missing|safe }}</div>
+
+        <h4> *Data with NaN is a missing value.</h4>
+
+        <h2>Data with Missing Values Replaced by Mean</h2>
+
+        <div>{{ table_filled|safe }}</div>
+
+        <h2>Detailed Summary Statistics</h2>
+
+        <div>{{ summary_status|safe }}</div>
+    {% else %}
+        <h2>First Few Rows of Data</h2>
+
+        <div>{{ table|safe }}</div>
+
+        <h2>Detailed Summary Statistics</h2>
+
+        <div>{{ summary_status|safe }}</div>
+
+    {% endif %}
+    <a href="{% url 'visualize_data' %}">Click here to visualise this data</a>
+</body>
+</html>
